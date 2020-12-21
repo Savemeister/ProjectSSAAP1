@@ -1,3 +1,4 @@
+import random
 def CoprimeTest(z,E): # Тест на простоту
     while z != 0 and E != 0:
         if z > E:
@@ -75,3 +76,14 @@ def Decryption(emessage): # Дешифрование
 def GeneratingD(E, z, n): # Генерация D
     D = pow(E, -1, z)
     return D
+
+def newkeys(): # Генерация новых ключей
+    p, q = GeneratingBigPrime(), GeneratingBigPrime()
+    z = (p-1) * (q-1)
+    n = p * q
+    E = GeneratingE(z)
+    defoltE = 65537
+    D = GeneratingD(E, z, n)
+    return n, E, D, p, q
+
+    sss
